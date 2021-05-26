@@ -11,7 +11,7 @@ user='admin'
 password='123456'
 
 class DlinkDCSCamera(object): #initialisation paramètre caméra
- 
+
    """DLINK DCS IP Camera Control."""
 
     DAY_NIGHT_AUTO = '0'
@@ -681,23 +681,16 @@ class DlinkDCSCamera(object): #initialisation paramètre caméra
 
 STOP_ROBOT = {
     'linear': {
-        'y': 0.0, 
-        'x': 0.0, 
+        'y': 0.0,
+        'x': 0.0,
         'z': 0.0
-    }, 
+    },
     'angular': {
-        'y': 0.0, 
-        'x': 0.0, 
+        'y': 0.0,
+        'x': 0.0,
         'z': 0.0
     }
 }
-
-
-'''
-Callback function, it process the image received and save it into
-the computer
-'''
-def receive_image(msg):
 
 '''
 Send the command to take the picture

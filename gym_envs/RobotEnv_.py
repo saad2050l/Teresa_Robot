@@ -94,22 +94,6 @@ class RobotEnv(gym.Env):
             reward = 0
         return self.state, reward, done, {}
 
-    def reset(self):
-        """Reset the simulation putting the object to
-        follow in a random position
-
-        Returns:
-            Integer: The state after the reset
-        """
-        self.robot.reset_simulation()
-        random_number = random.uniform(-1.0, 1.0)
-        self.gzcontroller.set_position(random_number)
-        self.state = pos_to_state(0, 0) # Refactorization of the code step for state definition
-        self.last_u = None
-        self.real_position = (0,0,0,0)
-
-        return self.state
-
     def render(self, mode='human'):
         """Render an image that represents the state in a moment of the simulation
 
