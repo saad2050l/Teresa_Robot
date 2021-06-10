@@ -94,6 +94,15 @@ class RobotEnv(gym.Env):
             reward = 0
         return self.state, reward, done, {}
 
+    def reset(self):
+        #Reset the test putting the object to
+        self.state = pos_to_state(0, 0) # Refactorization of the code step for state definition
+        self.last_u = None
+        self.real_position = (0,0,0,0)
+
+        return self.state
+
+
     def render(self, mode='human'):
         """Render an image that represents the state in a moment of the simulation
 
@@ -103,6 +112,7 @@ class RobotEnv(gym.Env):
         Returns:
             Integer
         """
+       
 
         image = cv2.imread(OBSERVATION_FILE)
         window_name = 'image'
@@ -115,19 +125,19 @@ class RobotEnv(gym.Env):
         # are all 0
         if sum(self.real_position) == 0:
            x, y, w, h = (0, 0, 0, 0) # Not detected
+
         cv2.rectangle(image, (x, y), (x+w, y+h), (25, 125, 225), 5)
         xreal, yreal, wreal, hreal = self.real_position
         cv2.rectangle(image, (xreal, yreal), (xreal+wreal, yreal+hreal), (255, 0, 0), 5)
 
-        plt.imshow(image)
+        cv2.imshow(window_name, image)
         value = 5
-
         imgcpy = image.copy()
 
         img = cv2.resize(imgcpy, None, fx=0.5, fy=0.5)
-
-        plt.imshow( image)
-
+        cv2.imshow(window_name, image)
+        
+        cv2.waitKey(1)
         return 0
 
     def update_state_image(self):

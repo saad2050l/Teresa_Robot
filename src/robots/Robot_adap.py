@@ -5,8 +5,8 @@ between robots
 """
 import roslibpy
 import time
-from src.robots.actions.camera import take_picture
-from src.robots.actions.move import execute_move
+from src.robots.actions.camera_adap import take_picture
+from src.robots.actions.move_adap import execute_move
 
 class Robot():
     """

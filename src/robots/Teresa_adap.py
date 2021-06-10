@@ -6,7 +6,7 @@ NOTE: Needs to be adapted after to the physical robot way to move (In process)
 import roslibpy
 import time
 
-from src.robots.Robot import Robot
+from src.robots.Robot_adap import Robot
 
 class Teresa(Robot):
     """
