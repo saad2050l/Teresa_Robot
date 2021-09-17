@@ -87,8 +87,8 @@ You have to specify the arguments. ```HOST``` and ```PORT``` correspond to the R
 
 # Authors and Advisor
 [Daniel RODRIGUEZ](https://danielrs975.github.io), Student at Telecom SudParis, Institut Polytechnique de Paris.<br />
-[Saad LAHLALI](https://www.linkedin.com/in/saad-lahlali/), Student at Telecom SudParis, Institut Polytechnique de Paris.<br />
 [Quentin Addi](https://www.linkedin.com/in/quentin-addi-12482b194/), Student at Telecom SudParis, Institut Polytechnique de Paris.<br />
+[Saad LAHLALI](https://www.linkedin.com/in/saad-lahlali/), Student at Telecom SudParis, Institut Polytechnique de Paris.<br />
 
 **Advisor:** [Prof. Hossam Afifi](http://www-public.int-evry.fr/~afifi/cvusnew.html) (Telecom SudParis, Institut Polytechnique de Paris).
 
