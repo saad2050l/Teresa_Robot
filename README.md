@@ -67,21 +67,21 @@ The arguments HOST and PORT are set by default respectively to ```localhost``` a
 
 #### Verifying robot movement
 You can also verify that the robot movements manually with the following command:<br />
-$ python3 ./verifications/robot_move.py [HOST] [PORT]
+```$ python3 ./verifications/robot_move.py [HOST] [PORT]```
 
 #### Training the robot 
 After verifying that the robot is connected and the movements are the right ones, you can train the robot with the following command:  
-$ python3 ./train.py<br />
+```$ python3 ./train.py```<br />
 The arguments HOST and PORT are set by default respectively to ```localhost``` and ```9090```.<br />
 The model will be saved in the file ```saved_model.ckpt```. 
 
 #### Testing on the simulation
 After having trained the model, you can test the robot with the following command:<br />
-$ python3 ./test_simulation.py
+```$ python3 ./test_simulation.py```
 
 #### Testing on the real Teresa
 You can also test on the real robot with the following command:<br />
-$ python3 ./test_teresa.py [HOST] [PORT] [HostCamera] [UserCamera] [PasswordCamera]<br />
+```$ python3 ./test_teresa.py [HOST] [PORT] [HostCamera] [UserCamera] [PasswordCamera]```<br />
 You have to specify the arguments. ```HOST``` and ```PORT``` correspond to the Robot and ```HostCamera```, ```UserCamera``` and ```PasswordCamera``` are necessary arguments to connect with the camera since we used in our project a external camera.
 
 
