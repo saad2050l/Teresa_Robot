@@ -41,6 +41,7 @@ You must have installed:
 3) Create a virtual environment with the ```virtualenv``` command. Example: ```virtualenv --python=python3 venv/```
 4) Activate the environment. ```source venv/bin/activate```
 5) Install the dependencies of the Robot library: ```pip install -r requirements.txt```
+6) Copy the Teresa_Lightweight.world file in the gazebo_world folder to ./gazebo/envs/
 
 # Running the environments
 ## For the Teresa Robot
