@@ -5,7 +5,8 @@ between robots
 """
 import roslibpy
 import time
-from src.robots.actions.camera_adap import take_picture
+from src.robots.actions.camera_train import take_picture_test
+from src.robots.actions.camera_test import take_picture_train
 from src.robots.actions.move_adap import execute_move
 
 class Robot():
@@ -32,7 +33,7 @@ class Robot():
 
 
 
-    def move_robot(self, move):
+    def move_robot_train(self, move):
         """
         Move the robot in the given direction
         Args:
@@ -40,7 +41,17 @@ class Robot():
             and the number of possible movements.
         """
         execute_move(self.movements[move], self.move_topic)
-        take_picture(self.camera_topic)
+        take_picture_train(self.camera_topic)
+
+    def move_robot_test(self, move):
+        """
+        Move the robot in the given direction
+        Args:
+            move: Integer. Index of the movement to execute. This number is restrained between 0
+            and the number of possible movements.
+        """
+        execute_move(self.movements[move], self.move_topic)
+        take_picture_test(self.camera_topic)
 
     def remove_subscribers(self):
         """

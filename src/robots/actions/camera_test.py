@@ -696,7 +696,7 @@ Send the command to take the picture
 Input
 - camera_topic ---> it is the topic where the camera send the image
 '''
-def take_picture(camera_topic):
+def take_picture_test(camera_topic):
     capture = cv2.VideoCapture('http://admin:123456@192.168.1.35:80/video/mjpg.cgi?profileid=1') #important
     largeur_capture=capture.get(cv2.CAP_PROP_FRAME_WIDTH)
     hauteur_capture=capture.get(cv2.CAP_PROP_FRAME_HEIGHT)

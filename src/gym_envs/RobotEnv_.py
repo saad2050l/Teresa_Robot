@@ -9,7 +9,7 @@ from src.utils.training_tools import OBSERVATION_FILE, IMAGE_SIZE, SQUARE_SIZE_X
                                     SQUARE_SIZE_Y, STEP_X, STEP_Y, ERROR, FINAL_X, FINAL_Y, \
                                     in_range, pos_to_state, state_to_pos
 from src.utils.useful_functions import is_modified, calculate_center
-
+from src.gym_envs.GazeboController import GazeboController
 import matplotlib.pyplot as plt
 import time
 
@@ -30,6 +30,7 @@ class RobotEnv(gym.Env):
         self.robot = robot
         self.state = 0
         self.action_space = spaces.Discrete(robot.NUMBER_MOVEMENTS)
+        self.gzcontroller = GazeboController(client)
         self.set_up_parameters_training()
 
         if os.path.exists(OBSERVATION_FILE):
@@ -53,7 +54,7 @@ class RobotEnv(gym.Env):
             return True
         return False
 
-    def step(self, action):
+    def step_train(self, action):
         """Execute a command into the robot and retrieve
         a picture of the environment
 
@@ -67,7 +68,48 @@ class RobotEnv(gym.Env):
         reward = 0 # Reward of the state
         done = 0 # Boolean that indicates that an episode has finished
 
-        self.robot.move_robot(action) # Execute Move
+        self.robot.move_robot_train(action) # Execute Move
+        self.update_state_image() # Process image
+        object_locations = self.define_state() # Define state
+
+        if len(object_locations) > 0:
+            x, y, w, h = object_locations[0]
+            self.state = pos_to_state(x, y)
+            self.real_position = (x, y, w, h)
+            #--------The code below will change------
+            if self.object_in_place(x, y, w, h) and self.state <= self.NB_STATES:
+                reward = 1
+                done = 1
+            elif self.state > self.NB_STATES:
+                self.state = 0
+                self.real_position = (0, 0, 0, 0) #Reset real position
+                done = 1
+                reward = 0
+            else:
+                reward = 0
+            #----------------------------------------
+        else:
+            self.state = pos_to_state(0, 0) #Reset state
+            self.real_position = (0, 0, 0, 0) #Reset real position
+            done = 0
+            reward = 0
+        return self.state, reward, done, {}
+
+    def step_test(self, action):
+        """Execute a command into the robot and retrieve
+        a picture of the environment
+
+        Args:
+            action (Integer): Action to execute
+
+        Returns:
+            List: a list containing the new state, the reward obtained from the step
+            and if it finish doing the task
+        """
+        reward = 0 # Reward of the state
+        done = 0 # Boolean that indicates that an episode has finished
+
+        self.robot.move_robot_test(action) # Execute Move
         self.update_state_image() # Process image
         object_locations = self.define_state() # Define state
 
