@@ -22,6 +22,7 @@
 This directory contains the Teresa project which aims to allow the robot to follow a person autonomously thanks to the image rendering. 
 <p>
 Note : the ROS library allows us to generalize this project with ease to many other robots with similar movements.
+
 ## Reinforcement Learning Formulation of the Project
  ![reinforcement learning formulation](https://github.com/saad2050lahlali/Teresa_Robot/blob/master/images/rl_map.png)
 
