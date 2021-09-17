@@ -59,36 +59,36 @@ This has to be in 3 different terminals (Wait until each of the first 3 commands
 3) Third terminal: ```roslaunch rosbridge_server rosbridge_websocket.launch```
 
 #### Verifying robot connection
-After runing the previous commands, you can verify that the robot can be connected to without problem with the following command:
-$ python3 ./verifications/robot_connect.py [HOST] [PORT]
+After runing the previous commands, you can verify that the robot can be connected to without problem with the following command:<br />
+$ python3 ./verifications/robot_connect.py [HOST] [PORT]<br />
 The arguments HOST and PORT are set by default respectively to 'localhost' and 9090 which corresponds to local excecution of simulation.
 
 #### Verifying robot movement
-You can also verify that the robot movements manually with the following command:
+You can also verify that the robot movements manually with the following command:<br />
 $ python3 ./verifications/robot_move.py [HOST] [PORT]
 
 #### Training the robot 
-After verifying that the robot is connected and the movements are the right ones, you can train the robot with the following command:
-$ python3 ./train.py
-The arguments HOST and PORT are set by default respectively to 'localhost' and 9090.
+After verifying that the robot is connected and the movements are the right ones, you can train the robot with the following command:  
+$ python3 ./train.py<br />
+The arguments HOST and PORT are set by default respectively to 'localhost' and 9090.<br />
 The model will be saved in the file "saved_model.ckpt". 
 
 #### Testing on the simulation
-After having trained the model, you can test the robot with the following command:
+After having trained the model, you can test the robot with the following command:<br />
 $ python3 ./test_simulation.py
 
 #### Testing on the real Teresa
-You can also test on the real robot with the following command:
-$ python3 ./test_teresa.py [HOST] [PORT] [HostCamera] [UserCamera] [PasswordCamera]
+You can also test on the real robot with the following command:<br />
+$ python3 ./test_teresa.py [HOST] [PORT] [HostCamera] [UserCamera] [PasswordCamera]<br />
 You have to specify the arguments. HOST and PORT correspond to the Robot and HostCamera, UserCamera and PasswordCamera are for the camera since we used in our project a external camera.
 
 
 # Authors and Advisor
-[Daniel RODRIGUEZ](https://danielrs975.github.io), Student at Telecom SudParis, Institut Polytechnique de Paris
-[Saad LAHLALI](https://www.linkedin.com/in/saad-lahlali/), Student at Telecom SudParis, Institut Polytechnique de Paris
-[Quentin Addi](https://www.linkedin.com/in/quentin-addi-12482b194/), Student at Telecom SudParis, Institut Polytechnique de Paris
+[Daniel RODRIGUEZ](https://danielrs975.github.io), Student at Telecom SudParis, Institut Polytechnique de Paris.<br />
+[Saad LAHLALI](https://www.linkedin.com/in/saad-lahlali/), Student at Telecom SudParis, Institut Polytechnique de Paris.<br />
+[Quentin Addi](https://www.linkedin.com/in/quentin-addi-12482b194/), Student at Telecom SudParis, Institut Polytechnique de Paris.<br />
 
-**Advisor:** [Prof. Hossam Afifi](http://www-public.int-evry.fr/~afifi/cvusnew.html) (Telecom SudParis, Institut Polytechnique de Paris)
+**Advisor:** [Prof. Hossam Afifi](http://www-public.int-evry.fr/~afifi/cvusnew.html) (Telecom SudParis, Institut Polytechnique de Paris).
 
 # Note about this project
 This project was initiated by [Daniel RODRIGUEZ](https://github.com/danielrs975/robot_controller) during his summer internship afterward continued by Saad LAHLALI and Quentin Addi for a school project then Saad LAHLALI kept working on his free time.
