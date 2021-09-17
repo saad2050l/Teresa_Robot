@@ -27,7 +27,7 @@ Note : the ROS library allows us to generalize this project with ease to many ot
  ![reinforcement learning formulation](https://github.com/saad2050lahlali/Teresa_Robot/blob/master/images/rl_map.png)
 
 ## Tools used
-One library it is used to connect with the ROS Server, ```roslibpy``` ([See docs here](https://roslibpy.readthedocs.io/en/latest/reference/index.html)) and also a ROSBridge library to connect remotely with the robot ([See docs here](http://wiki.ros.org/rosbridge_suite#:~:text=At%20its%20core%2C%20rosbridge%20is,Author%3A%20Maintained%20by%20Jonathan%20Mace)).
+One library it is used to connect with the ROS Server, ```roslibpy``` ([See docs here](https://roslibpy.readthedocs.io/en/latest/reference/index.html)) and also a ```ROSBridge``` library to connect remotely with the robot ([See docs here](http://wiki.ros.org/rosbridge_suite#:~:text=At%20its%20core%2C%20rosbridge%20is,Author%3A%20Maintained%20by%20Jonathan%20Mace)).
 
 # Setting up the environment
 ## Prerequisites
@@ -63,7 +63,7 @@ This has to be in 3 different terminals (Wait until each of the first 3 commands
 #### Verifying robot connection
 After runing the previous commands, you can verify that the robot can be connected to without problem with the following command:<br />
 $ python3 ./verifications/robot_connect.py [HOST] [PORT]<br />
-The arguments HOST and PORT are set by default respectively to 'localhost' and 9090 which corresponds to local excecution of simulation.
+The arguments HOST and PORT are set by default respectively to ```localhost``` and ```9090``` which corresponds to local excecution of simulation.
 
 #### Verifying robot movement
 You can also verify that the robot movements manually with the following command:<br />
@@ -72,8 +72,8 @@ $ python3 ./verifications/robot_move.py [HOST] [PORT]
 #### Training the robot 
 After verifying that the robot is connected and the movements are the right ones, you can train the robot with the following command:  
 $ python3 ./train.py<br />
-The arguments HOST and PORT are set by default respectively to 'localhost' and 9090.<br />
-The model will be saved in the file "saved_model.ckpt". 
+The arguments HOST and PORT are set by default respectively to ```localhost``` and ```9090```.<br />
+The model will be saved in the file ```saved_model.ckpt```. 
 
 #### Testing on the simulation
 After having trained the model, you can test the robot with the following command:<br />
@@ -82,7 +82,7 @@ $ python3 ./test_simulation.py
 #### Testing on the real Teresa
 You can also test on the real robot with the following command:<br />
 $ python3 ./test_teresa.py [HOST] [PORT] [HostCamera] [UserCamera] [PasswordCamera]<br />
-You have to specify the arguments. HOST and PORT correspond to the Robot and HostCamera, UserCamera and PasswordCamera are for the camera since we used in our project a external camera.
+You have to specify the arguments. ```HOST``` and ```PORT``` correspond to the Robot and ```HostCamera```, ```UserCamera``` and ```PasswordCamera``` are necessary arguments to connect with the camera since we used in our project a external camera.
 
 
 # Authors and Advisor
