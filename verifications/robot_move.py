@@ -11,8 +11,8 @@ if __name__ == "__main__":
 
     if len(sys.argv) > 0:
         HOST = int(sys.argv[1])
-        if len(sys.argv) > 1:
-            PORT = int(sys.argv[2])
+    if len(sys.argv) > 1:
+        PORT = int(sys.argv[2])
 
     client = roslibpy.Ros(host=HOST, port=PORT)
     client.run()

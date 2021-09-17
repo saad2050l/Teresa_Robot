@@ -50,13 +50,11 @@ def discount_correct_rewards(r, gamma=0.99):
 
 if __name__ == "__main__":
 
-    HOST = "XXX.XXX.XXX.XXX"
-    PORT = 9090
-
-    if len(sys.argv) > 0:
-        HOST = int(sys.argv[1])
-        if len(sys.argv) > 1:
-            PORT = int(sys.argv[2])
+    HOST = int(sys.argv[1])
+    PORT = int(sys.argv[2])
+    host=str(sys.argv[2])
+    user=str(sys.argv[3])
+    password=str(sys.argv[4])
 
     #Connecting with the robot Teresa
     client = roslibpy.Ros(host=HOST, port=PORT)
@@ -65,9 +63,7 @@ if __name__ == "__main__":
     print(client.is_connected)
 
     #Connecting with the camera
-    host='XXX.XXX.XXX.XXY'
-    user='user'
-    password='password'
+
     camera = DlinkDCSCamera(host = host, user = user, password = password)
     camera.set_day_night(2)
     print("The camera is connected.")
