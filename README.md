@@ -21,7 +21,9 @@
 # Description
 This directory contains the Teresa project which aims to allow the robot to follow a person autonomously thanks to the image rendering.<br /> 
 ![Train](./images/train_gif.gif)
+<br />
 ![Test](./images/test_gif.gif)
+<br />
 You can find a [video](https://www.youtube.com/watch?v=Qo_Pitp4Zk8&ab_channel=SaadLahlali) describing both the training and the testing with the Teresa robot [here](https://www.youtube.com/watch?v=Qo_Pitp4Zk8&ab_channel=SaadLahlali).<br />
 Note : the ROS library allows us to generalize this project with ease to many other robots with similar movements.
 
@@ -65,7 +67,7 @@ This has to be in 3 different terminals (Wait until each of the first 3 commands
 
 #### Verifying robot connection
 After runing the previous commands, you can verify that the robot can be connected to without problem with the following command:<br />
-$ python3 ./verifications/robot_connect.py [HOST] [PORT]<br />
+```$ python3 ./verifications/robot_connect.py [HOST] [PORT]``` <br />
 The arguments HOST and PORT are set by default respectively to ```localhost``` and ```9090``` which corresponds to local excecution of simulation.
 
 #### Verifying robot movement
