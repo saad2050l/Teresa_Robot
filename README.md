@@ -20,7 +20,7 @@
 
 # Description
 This directory contains the Teresa project which aims to allow the robot to follow a person autonomously thanks to the image rendering.<br /> 
-[![IMAGE ALT TEXT HERE]](./images/Teresa_Robot_Movement.gif)
+![IMAGE ALT TEXT HERE]](./images/Teresa_Robot_Movement.gif)
 [![Watch the video]](https://www.youtube.com/watch?v=Qo_Pitp4Zk8&ab_channel=SaadLahlali)
 You can find a [video](https://www.youtube.com/watch?v=Qo_Pitp4Zk8&ab_channel=SaadLahlali) describing both the training and the testing with the Teresa robot [here](https://www.youtube.com/watch?v=Qo_Pitp4Zk8&ab_channel=SaadLahlali).<br />
 Note : the ROS library allows us to generalize this project with ease to many other robots with similar movements.
