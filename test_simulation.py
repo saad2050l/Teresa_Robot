@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
         with tf.name_scope("flat"):
             flat = tf.layers.Flatten(conv3)
-
+  
         with tf.name_scope("fc1"):
             fc1 = tf.layers.dense(flat, 512, activation='relu')
 

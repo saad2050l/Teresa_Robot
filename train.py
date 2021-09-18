@@ -72,7 +72,7 @@ if __name__ == "__main__":
         
         with tf.name_scope("conv3"):
             conv3 = tf.layers.Conv2D(conv2, 32, 4, subsample=(2,2), activation='relu')
-
+  
         with tf.name_scope("flat"):
             flat = tf.layers.Flatten(conv3)
 
