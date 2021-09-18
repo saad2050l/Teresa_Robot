@@ -1,7 +1,7 @@
-numpy==1.15.2
-opencv-python==4.2.0.34
-tensorboard==1.15.0
-tensorflow==1.15.0
-tensorflow-estimator==1.15.1
-tensorflow-gpu==1.15.0
+numpy
+opencv-python
+tensorboard
+tensorflow
+tensorflow-estimator
+tensorflow-gpu
 sys
