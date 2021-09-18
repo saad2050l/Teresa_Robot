@@ -50,37 +50,46 @@ if __name__ == "__main__":
 
     #Setting-up the neural network 
     learning_rate = 0.01
-    state_size =  NB_STATES # 800 is the image size this maybe variable
+    ima_size =  800
     action_size = 4
     new_graph = tf.Graph()
 
     initializer=tf.initializers.glorot_uniform()
 
     with tf.name_scope("inputs"):
-        input_ = tf.placeholder(tf.float32, [None, state_size], name="input_")
+        input_ = tf.placeholder(tf.float32, [None, ima_size, ima_size], name="input_")
         actions = tf.placeholder(tf.int32, [None, action_size], name="actions")
         discounted_episode_rewards_ = tf.placeholder(tf.float32, [None,], name="discounted_episode_rewards")
         
         # Add this placeholder for having this variable in tensorboard
         mean_reward_ = tf.placeholder(tf.float32 , name="mean_reward")
 
+        with tf.name_scope("conv1"):
+            conv1 = tf.layers.Conv2D(input_, 8, 8, subsample=(4,4), activation='relu')
+
+        with tf.name_scope("conv2"):
+            conv2 = tf.layers.Conv2D(conv1, 16, 8, subsample=(2,2), activation='relu')
+        
+        with tf.name_scope("conv3"):
+            conv3 = tf.layers.Conv2D(conv2, 32, 4, subsample=(2,2), activation='relu')
+
+        with tf.name_scope("flat"):
+            flat = tf.layers.Flatten(conv3)
+
         with tf.name_scope("fc1"):
-            fc1 = tf.layers.dense(input_ , 20, activation=tf.nn.relu,kernel_initializer=initializer)
+            fc1 = tf.layers.dense(flat, 512, activation='relu')
 
         with tf.name_scope("fc2"):
-            fc2 = tf.layers.dense(fc1, action_size,activation= tf.nn.relu, kernel_initializer=initializer)
-        
-        with tf.name_scope("fc3"):
-            fc3 = tf.layers.dense(fc2, action_size, activation= None,kernel_initializer=initializer)
+            fc2 = tf.layers.dense(fc1, action_size, activation='relu')
 
         with tf.name_scope("softmax"):
-            action_distribution = tf.nn.softmax(fc3)
+            action_distribution = tf.nn.softmax(fc2)
 
         with tf.name_scope("loss"):
             # tf.nn.softmax_cross_entropy_with_logits computes the cross entropy of the result after applying the softmax function
             # If you have single-class labels, where an object can only belong to one class, you might now consider using 
             # tf.nn.sparse_softmax_cross_entropy_with_logits so that you don't have to convert your labels to a dense one-hot array. 
-            neg_log_prob = tf.nn.softmax_cross_entropy_with_logits_v2(logits = fc3, labels = actions)
+            neg_log_prob = tf.nn.softmax_cross_entropy_with_logits_v2(logits = fc2, labels = actions)
             #loss = tf.nn.sparse_softmax_cross_entropy_with_logits (neg_log_prob * discounted_episode_rewards_)
             loss = tf.reduce_mean(neg_log_prob * discounted_episode_rewards_) 
             
