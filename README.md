@@ -31,7 +31,7 @@ Note : the ROS library allows us to generalize this project with ease to many ot
  ![reinforcement learning formulation](https://github.com/saad2050lahlali/Teresa_Robot/blob/master/images/rl_map.png)
 
 ### Person detection 
-In order to evaluate the reward, we need detect if the person is centered in the image. In order to do that, we used [Haarcascades](https://github.com/saad2050lahlali/Teresa_Robot/tree/master/Haarcascades) but [Yolo](https://pjreddie.com/darknet/yolo/) worked much better. A result of the render function is: ![Render](https://github.com/saad2050lahlali/Teresa_Robot/blob/master/images/what_robot_sees.png)
+In order to evaluate the reward, we need detect if the person is centered in the image. In order to do that, we can use either [Haarcascades](https://github.com/saad2050lahlali/Teresa_Robot/tree/master/Haarcascades) or [Tiny Yolo](https://pjreddie.com/darknet/yolo/). A result of the render function is: ![Render](https://github.com/saad2050lahlali/Teresa_Robot/blob/master/images/what_robot_sees.png)
 
 ## Tools used
 One library it is used to connect with the ROS Server, ```roslibpy``` ([See docs here](https://roslibpy.readthedocs.io/en/latest/reference/index.html)) and also a ```ROSBridge``` library to connect remotely with the robot ([See docs here](http://wiki.ros.org/rosbridge_suite#:~:text=At%20its%20core%2C%20rosbridge%20is,Author%3A%20Maintained%20by%20Jonathan%20Mace)).
